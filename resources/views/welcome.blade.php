@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es" class="scroll-smooth scroll-pt-24">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,32 +17,35 @@
     </script>
 
 </head>
-<body class="dark:bg-stone-900 font-sans antialiased selection:bg-amber-500 selection:text-stone-950">
+<body class="dark:bg-stone-800 font-sans antialiased selection:bg-amber-500 selection:text-stone-950">
 
-    <button onclick="toggleTheme()"
-        class="fixed top-5 right-5 md:top-8 md:right-8 z-50
-               w-12 h-12 flex items-center justify-center rounded-full
-               bg-white dark:bg-stone-800 
-               border border-stone-200 dark:border-stone-700
-               text-stone-600 dark:text-stone-300
-               hover:bg-stone-100 dark:hover:bg-stone-700
-               shadow-sm hover:shadow-md transition-all duration-300"
-        aria-label="Alternar tema oscuro">
+<!-- Navbar Fija con Efecto Cristal -->
+<nav class="fixed top-0 left-0 w-full z-50 bg-[#1a1a1a]/80 backdrop-blur-md border-b border-stone-800 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-6 h-15 flex items-center justify-between">
     
-    <img src="{{ asset('icons/luna.png') }}" 
-         alt="Activar Modo Oscuro" 
-         class="w-6 h-6 block dark:hidden">
+    <!-- Logo / Tu Nombre -->
+    <a href="#inicio" class="text-2xl font-bold text-white tracking-wide">
+      CodeBy-David<span class="text-cyan-500">.</span>
+    </a>
 
-    <img src="{{ asset('icons/sol.png') }}" 
-         alt="Activar Modo Claro" 
-         class="w-6 h-6 hidden dark:block">
+    <!-- Enlaces de Navegación -->
+    <div class="flex gap-5">
+      <a href="#inicio" class="text-sm font-medium text-stone-300 hover:text-cyan-400 transition-colors">
+        Inicio
+      </a>
+      <a href="#trayectoria" class="text-sm font-medium text-stone-300 hover:text-cyan-400 transition-colors">
+        Sobre mí
+      </a>
+    </div>
 
-    </button>
+  </div>
+</nav>
 
     <!-- Hero Section: Monocromático Cálido & Amigable -->
-    <section class="min-h-screen text-stone-100 flex items-center justify-center px-6">
+     
+    <section id="inicio" class="bg-[#2B2928] w-full min-h-screen flex items-center pt-28 pb-20 flex flex-col md:flex-row items-stretch min-h-[70vh] mx-auto mb-20 gap-8">
         
-        <div class="max-w-3xl mx-auto text-center py-20">
+        <div class="w-full md:w-1/2 flex flex-col justify-center items-start px-6 md:px-12 py-10">
 
             <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 text-neutral-900 dark:text-white">
             Hola, soy <span class="bg-gradient-to-r from-yellow-400 to-teal-500 bg-clip-text text-yellow-400">David</span>
@@ -60,18 +63,30 @@
 
             <!-- Botones de Acción -->
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="#proyectos" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-stone-950 font-semibold text-base transition-all duration-200 shadow-xl shadow-orange-500/10 hover:scale-[1.02]">
+                <a href="#proyectos" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-black font-semibold text-base transition-all duration-200 shadow-xl shadow-orange-500/10 hover:scale-[1.02]">
                     Explorar mis trabajos
                 </a>
 
-                <a href="#contacto" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-stone-950 font-semibold text-base transition-all duration-200 shadow-xl shadow-orange-500/10 hover:scale-[1.02]">
+                <a href="#contacto" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-black font-semibold text-base transition-all duration-200 shadow-xl shadow-orange-500/10 hover:scale-[1.02]">
                     Conversemos
                 </a>
             </div>
-        </section>
+        </div>
+
+        <!-- COLUMNA DERECHA: Fotografía en entorno real -->
+  <div class="w-full md:w-1/2 relative min-h-[400px] md:min-h-0">
+    
+    <!-- La imagen -->
+    <!-- 'object-cover' hace que llene el espacio sin deformarse. -->
+    <!-- 'rounded-l-[100px]' da una curva masiva e imponente solo en el lado izquierdo -->
+    <img src="{{ asset('img/f6cd9b9c7e655de1c0b49be9637d15c4.jpg') }}" alt="David Placeholder" 
+         class="absolute inset-0 w-full h-full object-cover rounded-l-[80px] md:rounded-l-[120px] shadow-2xl dark:brightness-75 transition-all">
+    
+  </div>
+    </section>
         
 
-<section id="trayectoria" class="py-20 px-4 max-w-4xl mx-auto">
+<section id="trayectoria" class="py-5 px-4 max-w-4xl mx-auto">
   <h2 class="text-4xl font-bold dark:text-white text-black mb-12 text-center">
     Mi <span class="text-yellow-400">Trayectoria</span>
   </h2>
@@ -82,7 +97,7 @@
     <!-- Item 1: Actualidad -->
     <div class="mb-12 ml-8">
       <!-- El punto en la línea (Cian) -->
-      <span class="absolute flex items-center justify-center w-4 h-4 bg-cyan-400 rounded-full -left-2 ring-4 dark:ring-[#1a1a1a] ring-[#ffffff]"></span>
+      <span class="absolute flex items-center justify-center w-4 h-4 bg-cyan-400 rounded-full -left-2 ring-4 ring-[#2B2928]"></span>
       
       <h3 class="flex items-center mb-1 text-xl font-bold dark:text-white text-black">
         Ingeniería de Software con Inteligencia Artificial
@@ -96,20 +111,20 @@
     <!-- Item 2: Proyecto Destacado / Logro -->
     <div class="mb-12 ml-8">
       <!-- El punto en la línea (Gris/Naranja dependiendo de tu gusto) -->
-      <span class="absolute flex items-center justify-center w-4 h-4 bg-gray-600 rounded-full -left-2 ring-4 dark:ring-[#1a1a1a] ring-[#ffffff]"></span>
+      <span class="absolute flex items-center justify-center w-4 h-4 bg-gray-600 rounded-full -left-2 ring-4 ring-[#2B2928] "></span>
       
       <h3 class="mb-1 text-xl font-bold dark:text-white text-black">
         Desarrollo de Sistemas Backend & Bases de Datos
       </h3>
       <time class="block mb-2 text-sm font-medium text-gray-500">Proyectos Prácticos</time>
       <p class="mb-4 text-base font-normal dark:text-gray-400 text-gray-900 leading-relaxed">
-        Creación y despliegue de sistemas de gestión (ventas, matrículas escolares, sistemas clínicos) implementando arquitectura MVC, operaciones CRUD y alojamiento en la nube (Cloud SQL, Clever Cloud).
+        Creación, despliegue de sistemas de gestión y paginas web (gestor de ventas, matrículas escolares, sistemas clínicos) implementando arquitectura MVC, operaciones CRUD y alojamiento en la nube (Clever Cloud).
       </p>
     </div>
 
     <!-- Item 3: Inicios (Ejemplo) -->
     <div class="ml-8">
-      <span class="absolute flex items-center justify-center w-4 h-4 bg-gray-600 rounded-full -left-2 ring-4 dark:ring-[#1a1a1a] ring-[#ffffff]"></span>
+      <span class="absolute flex items-center justify-center w-4 h-4 bg-gray-600 rounded-full -left-2 ring-4 ring-[#2B2928]"></span>
       
       <h3 class="mb-1 text-xl font-bold dark:text-white text-black">
         Inmersión en la Programación
@@ -124,7 +139,7 @@
 </section>
 
     <!-- Cinta de Texto Animada (Marquee) -->
-<div class="w-full overflow-hidden bg-stone-50/50 dark:bg-stone-900/30 py-6 my-16 border-y border-stone-200 dark:border-stone-800">
+<div class="w-full overflow-hidden bg-stone-50/50 dark:bg-stone-900/30 py-5 my-30 border-y border-stone-200 dark:border-stone-800">
     <!-- Contenedor que se mueve -->
     <div class="animacion-cinta gap-12 whitespace-nowrap text-sm font-bold tracking-[0.2em] uppercase text-stone-400 dark:text-stone-500">
         
@@ -145,7 +160,7 @@
 </div>
 
                 <!-- Sección de Habilidades -->
-<section class="max-w-4xl mx-auto px-4 py-16">
+<section class="max-w-4xl mx-auto px-4 py-5">
     <h3 class="text-2xl font-bold text-center text-stone-800 dark:text-white mb-10">
         Mi Stack <span class="text-sky-500">Tecnológico</span>
     </h3>
@@ -295,27 +310,99 @@
 
 
     <!-- Pon esto justo debajo del cierre de tu sección de proyectos -->
-<section id="contacto" class="py-20 px-4 max-w-3xl mx-auto text-center">
-  <h2 class="text-4xl font-bold dark:text-white text-black mb-6">¿Iniciamos un <span class="text-cyan-400">proyecto?</span></h2>
-  <p class="dark:text-gray-400 text-gray-900 mb-10 text-lg">Déjame un mensaje y me pondré en contacto contigo lo más pronto posible.</p>
+<!-- Sección Contacto -->
+<section id="contacto" class="max-w-7xl mx-auto px-6 py-20">
+  
+  <div class="text-center mb-12">
+    <h2 class="text-4xl font-bold text-white mb-2">¿Iniciamos un <span class="text-cyan-500">proyecto?</span></h2>
+    <p class="text-stone-400">Déjame un mensaje y me pondré en contacto contigo lo más pronto posible.</p>
+  </div>
 
-  <!-- Formulario -->
-  <form action="TU_LOGICA_AQUI" method="POST" class="flex flex-col gap-6 text-left">
+  <!-- Contenedor Grid (2 columnas en escritorio, 1 en móviles) -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+    
+    <!-- MITAD IZQUIERDA: Info y Mapa -->
+    <div class="flex flex-col gap-5">
+      
+      <!-- Tarjeta de Info -->
+      <div class="bg-stone-900/50 p-6 rounded-2xl border border-stone-800">
+        <h3 class="text-xl font-bold text-yellow-500 mb-4">Datos de Contacto</h3>
+        <ul class="space-y-4 text-stone-300">
+          <!-- Item 1: Email -->
+  <li class="flex items-center gap-4">
+    <!-- Contenedor del Icono (Le damos un fondito sutil para que parezca un botón/badge) -->
+    <div class="flex-shrink-0 p-3 bg-stone-800/50 rounded-xl border border-stone-700">
+      <img src="{{ asset('icons/email.png') }}" alt="Icono Email" class="w-6 h-6 object-contain">
+    </div>
+    <!-- Contenedor de Textos (flex-col hace que se apilen uno arriba del otro) -->
+    <div class="flex flex-col">
+      <span class="text-xs text-stone-400 uppercase tracking-wider font-bold mb-0.5">Email</span>
+      <span class="text-stone-200 font-medium text-sm md:text-base">wd123456689@gmail.com</span>
+    </div>
+  </li>
+
+          <!-- Item 2: Ubicación -->
+  <li class="flex items-center gap-4">
+    <div class="flex-shrink-0 p-3 bg-stone-800/50 rounded-xl border border-stone-700">
+      <img src="{{ asset('icons/placeholder.png') }}" alt="Icono Ubicación" class="w-6 h-6 object-contain">
+    </div>
+    <div class="flex flex-col">
+      <span class="text-xs text-stone-400 uppercase tracking-wider font-bold mb-0.5">Ubicación</span>
+      <span class="text-stone-200 font-medium text-sm md:text-base">Callao, Perú</span>
+    </div>
+  </li>
+          <!-- Item 3: Teléfono / WhatsApp -->
+  <li class="flex items-center gap-4">
+    <div class="flex-shrink-0 p-3 bg-stone-800/50 rounded-xl border border-stone-700">
+      <img src="{{ asset('icons/whatsapp.png') }}" alt="Icono WhatsApp" class="w-6 h-6 object-contain">
+    </div>
+    <div class="flex flex-col">
+      <span class="text-xs text-stone-400 uppercase tracking-wider font-bold mb-0.5">Teléfono</span>
+      <span class="text-stone-200 font-medium text-sm md:text-base">+51 904 916 826</span>
+    </div>
+  </li>
+        </ul>
+      </div>
+
+      <!-- El Mapa en Modo Oscuro -->
+      <div class="w-full h-40 md:h-80 rounded-2xl overflow-hidden border border-stone-800 relative">
+        <!-- iframe de Google Maps. Las clases de filtro lo vuelven oscuro -->
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d124880.23586477827!2d-77.18604470861725!3d-12.008551107504273!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105cdcc6bbfffa3%3A0x4aed9b274e053057!2sCallao!5e0!3m2!1ses!2spe!4v1785278079419!5m2!1ses!2spe" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+          class="w-full h-full grayscale invert-[90%] hue-rotate-180 contrast-125" 
+          style="border:0;" allowfullscreen="" loading="lazy">
+        </iframe>
+      </div>
+      
+    </div>
+
+    <!-- MITAD DERECHA: Tu Formulario -->
+    <div class="bg-stone-900/30 p-8 rounded-2xl border border-stone-800">
+      <!-- Aquí va el código exacto de tus inputs de la image_deaa91.png -->
+      <form action="TU_LOGICA_AQUI" method="POST" class="flex flex-col gap-6 text-left">
     <div class="flex flex-col md:flex-row gap-6">
       <input type="text" name="nombre" placeholder="Tu Nombre" required
              class="w-full dark:bg-[#2a2a2a] dark:text-white text-black border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-cyan-400 transition-colors">
       <input type="email" name="correo" placeholder="Tu Correo" required
              class="w-full dark:bg-[#2a2a2a] dark:text-white text-black border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-cyan-400 transition-colors">
     </div>
+
+      <input type="email" name="asunto" placeholder="Asunto" required
+             class="w-full dark:bg-[#2a2a2a] dark:text-white text-black border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-cyan-400 transition-colors">  
+
+
     
     <textarea name="mensaje" rows="4" placeholder="¿En qué te puedo ayudar?" required
              class="w-full dark:bg-[#2a2a2a] dark:text-white text-black border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:border-cyan-400 transition-colors"></textarea>
     
     <button type="submit" 
-            class="bg-orange-500 hover:bg-orange-600 text-gray-900 font-bold py-3 px-8 rounded-full transition-all duration-300 shadow-[0_0_15px_rgba(249,115,22,0.3)] hover:-translate-y-1 mx-auto mt-2">
+            class="bg-orange-500 hover:bg-orange-600 text-black font-bold py-3 px-8 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 rounded-full transition-all duration-300 shadow-[0_0_15px_rgba(249,115,22,0.3)] hover:-translate-y-1 mx-auto mt-2">
       Enviar Mensaje
     </button>
   </form>
+    </div>
+
+  </div>
 </section>
 
 
