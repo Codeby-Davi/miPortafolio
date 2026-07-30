@@ -51,3 +51,46 @@ document.addEventListener("DOMContentLoaded", function() {
     const proyectos = document.querySelectorAll('.proyecto-izq, .proyecto-der');
     proyectos.forEach((el) => observer.observe(el));
 });
+
+document.getElementById('formulario').addEventListener('submit', async function(e) {
+    e.preventDefault(); // Evita que la página recargue
+
+    const btnSubmit = document.getElementById('btn-enviar');
+    const formData = new FormData(this);
+
+    // 1. Guardamos el texto original ANTES de cambiarlo
+    const textoOriginal = btnSubmit.innerText;
+
+    // 2. Cambiamos el estado del botón a "Enviando..."
+    btnSubmit.innerText = 'Enviando...';
+    btnSubmit.disabled = true;
+    btnSubmit.classList.add('opacity-50', 'cursor-not-allowed'); // Agregamos el efecto visual de bloqueo
+
+    try {
+            // 4. Se comunica con Laravel
+            const response = await fetch(this.action, { // this.action toma la url "/enviar-mensaje"
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest' // Le dice a Laravel que es una petición silenciosa
+                }
+            });
+
+            if (response.ok) {
+                // Aquí luego pondremos una notificación bonita
+                alert('¡Mensaje enviado con éxito!'); 
+                this.reset(); // Limpia los campos del form
+            } else {
+                alert('Hubo un problema al enviar el mensaje.');
+            }
+            
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Error de conexión.');
+        } finally {
+            // 5. Restaura el botón a la normalidad
+            btnSubmit.innerText = textoOriginal;
+            btnSubmit.disabled = false;
+            btnSubmit.classList.remove('opacity-50', 'cursor-not-allowed');
+        }
+});
